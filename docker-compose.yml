@@ -1,0 +1,17 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: D:\Users\vignolet.u\Desktop\ProjetEtude\instamint\instamint-front
+      dockerfile: Dockerfile
+    ports:
+      - '8080:80'
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: D:\Users\vignolet.u\Desktop\ProjetEtude\instamint\instamint-back
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
