@@ -1,0 +1,171 @@
+<app-header></app-header>
+
+<section>
+  <header class="bg-white space-y-4 p-4 sm:px-8 sm:py-1 lg:p-4 xl:px-8 xl:py-6">
+    <div class="flex items-center justify-between">
+      <h2 class="font-semibold text-slate-900">Search</h2>
+    </div>
+    <svg
+      width="20"
+      height="20"
+      fill="currentColor"
+      class="absolute left-3 top-1/2 mt-2.5 text-slate-400 pointer-events-none group-focus-within:text-blue-500"
+      aria-hidden="true">
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" />
+    </svg>
+    <input
+      class="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
+      type="text"
+      aria-label="Filter NFTs"
+      placeholder="Filter NFTs..."
+      (input)="filterNft()"
+      [(ngModel)]="searchWord" />
+
+    <ul class="flex space-x-3 nav nav-pills nav-justified">
+      <li>
+        <a class="block px-3 py-2">
+          <i> Search by </i>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a
+          href="javascript:void(0)"
+          class="block px-3 py-2 rounded-md nav-link texte-white"
+          aria-expanded="true"
+          [ngClass]="{ active: key === 'hashtag' }"
+          (click)="changeTab('hashtag')">
+          hashtags
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a
+          href="javascript:void(0)"
+          class="block px-3 py-2 rounded-md nav-link texte-white"
+          aria-expanded="true"
+          [ngClass]="{ active: key === 'username' }"
+          (click)="changeTab('username')">
+          username
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a
+          href="javascript:void(0)"
+          class="block px-3 py-2 rounded-md nav-link texte-white"
+          aria-expanded="true"
+          [ngClass]="{ active: key === 'description' }"
+          (click)="changeTab('description')">
+          any description
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a
+          href="javascript:void(0)"
+          class="block px-3 py-2 rounded-md nav-link texte-white"
+          aria-expanded="true"
+          [ngClass]="{ active: key === 'location' }"
+          (click)="changeTab('location')">
+          location
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <form class="max-w-sm mx-auto">
+          <select
+            id="countries"
+            class="block px-3 py-2 rounded-md nav-link texte-white"
+            aria-expanded="true"
+            [ngClass]="{ active: key === 'price' }"
+            (click)="changeTab('price')"
+            (change)="filterNftByPriceRange($event)">
+            <option selected>Price range</option>
+            <option value="Less than 500$">Less than 500$</option>
+            <option value="500$ - 1000$">500$ - 1000$</option>
+            <option value="1000$ - 2000$">1000$ - 2000$</option>
+            <option value="2000$ - 3000$">2000$ - 3000$</option>
+          </select>
+        </form>
+      </li>
+    </ul>
+  </header>
+  <hr />
+  <div class="bg-white">
+    <div
+      class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-1 lg:max-w-7xl lg:px-8">
+      <div
+        class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+        <div class="group relative" *ngFor="let item of nftsTableFilted">
+          <div
+            class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+            <img
+              src="../../../assets/images/NFTs/collection_2.webp"
+              alt="Front of men&#039;s Basic Tee in black."
+              class="h-full w-full object-cover object-center lg:h-full lg:w-full" />
+          </div>
+          <div class="mt-4 flex justify-between">
+            <div>
+              <h3 class="text-sm">
+                <a href="#">
+                  <span aria-hidden="true" class="absolute inset-0"></span>
+                  {{ item.username }}
+                </a>
+              </h3>
+              <div class="min-w-0 relative flex-auto">
+                <dl
+                  class="mt-2 flex text-sm leading-6 font-medium text-gray-700">
+                  <div class="ml-2">
+                    <dt class="text-green-500">
+                      <span class="sr-only">Number of mint rating</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="2em"
+                        height="2em"
+                        viewBox="0 0 512 512">
+                        <path
+                          fill="currentColor"
+                          d="M512 169.943c-50.296 12.033-91.653 12.632-127.443 7.49c-22.895 27.979-36.901 56.091-48.568 83.737c48.693-13.64 96.583-31.712 136.124-55.34c-42.697 31.493-92.067 53.554-141.817 69.276c-20.269 54.594-39.842 100.591-77.074 129.566c58.39-20.34 160.245-75.81 258.778-234.729m-263.637 219.67c80.103-69.55 48.78-188.267 203.384-290.824c-255.72-50.577-368.809 40.644-388.144 54.746c-103.994 75.841-56.637 198.26-24.04 169.647c53.276-46.09 133.296-158.44 286.56-198.737C186.999 162.294 88.86 295.126 63.094 328.528c-45.598 69.997 89.654 148.643 185.27 61.084" />
+                      </svg>
+                    </dt>
+                  </div>
+                  <div>
+                    <dt class="sr-only">mints</dt>
+                    <dd>3M</dd>
+                  </div>
+                  <div class="ml-3">
+                    <dt class="sr-only">Year</dt>
+                    <dd>{{ item.hashtag }}</dd>
+                  </div>
+                  <div class="ml-3">
+                    <dt class="sr-only">Year</dt>
+                    <dd>{{ item.description }}</dd>
+                  </div>
+                  <div class="ml-3">
+                    <dt class="sr-only">Size</dt>
+                    <dd class="px-1.5 ring-1 ring-slate-200 rounded">
+                      {{ item.location }}
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+
+              <p class="mt-1 text-sm text-slate-400 text-gray-300">
+                MinterUser
+              </p>
+            </div>
+            <p class="text-sm font-medium text-gray-900">
+              {{ item.price }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

@@ -1,0 +1,65 @@
+import { NftsInterface } from './../../shared/interfaces/nfts.interface';
+import { Component, OnInit } from '@angular/core';
+import { SearchNftService } from 'src/app/shared/services/search-nft.service';
+
+@Component({
+    selector: 'app-search',
+    templateUrl: './search.component.html',
+    styleUrls: ['./search.component.scss']
+})
+export class SearchComponent implements OnInit{
+
+    allNftsTable: NftsInterface[] = [];
+    nftsTableFilted: NftsInterface[] = [];
+    searchWord = ""
+    key = "";
+
+    constructor ( private _searchNftService: SearchNftService) {}
+
+    ngOnInit(): void {
+        this._searchNftService.getAllNfts().subscribe(
+            (response: NftsInterface[]) => {
+                this.allNftsTable = response
+                this.nftsTableFilted = response           
+            })
+    }
+    
+    changeTab(tab: string) {
+        this.key = tab
+        this.filterNft()
+    }
+
+    filterNft() { 
+        if (this.key.trim() === ""|| this.searchWord.trim() === '') {
+            this.nftsTableFilted = this.allNftsTable;
+        } else {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            this.nftsTableFilted = this.allNftsTable.filter((c:any) =>
+                c[this.key].toLowerCase().includes(this.searchWord.toLowerCase())
+            )
+        }
+    }
+
+    filterNftByPriceRange(event: Event) {
+        const selectedValue = (event.target as HTMLSelectElement).value;
+        switch(selectedValue) {
+            case 'Less than 500$':
+                this.nftsTableFilted = this.allNftsTable.filter(item => item.price < 500);
+                break;
+            case '500$ - 1000$':
+                this.nftsTableFilted = this.allNftsTable.filter(item => item.price >= 500 && item.price <= 1000);
+                break;
+            case '1000$ - 2000$':
+                this.nftsTableFilted = this.allNftsTable.filter(item => item.price >= 1000 && item.price <= 2000);
+                break;
+            case '2000$ - 3000$':
+                this.nftsTableFilted = this.allNftsTable.filter(item => item.price >= 2000 && item.price <= 3000);
+                break;
+            default:
+                this.nftsTableFilted = this.allNftsTable;
+                break;
+        }
+    }
+      
+}
+
