@@ -1,3 +1,3 @@
 export class env {
-    serveur = 'http://localhost:3000'
+    serveur = 'http://localhost:3000';
 }

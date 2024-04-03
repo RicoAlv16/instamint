@@ -5,15 +5,14 @@ import { Observable } from 'rxjs';
 import { env } from '../env';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class SearchNftService {
+    private _env = new env();
 
-    private _env = new env
-
-    constructor( private _http: HttpClient) {}
+    constructor(private _http: HttpClient) {}
 
     getAllNfts(): Observable<NftsInterface[]> {
-        return this._http.get<NftsInterface[]>(this._env.serveur + '/search-nft')
+        return this._http.get<NftsInterface[]>(this._env.serveur + '/search-nft');
     }
 }
