@@ -1,0 +1,39 @@
+<app-header></app-header>
+
+<ul class="nav nav-tabs justify-content-end mt-4 gap-2 sm:gap-3">
+  <li class="nav-item">
+    <a
+      href="#tabOne"
+      class="nav-link navLi"
+      data-toggle="tab"
+      aria-expanded="true"
+      [ngClass]="{ active: key === 'tabOne' }"
+      (click)="changeTab('tabOne')"
+      >Nfts</a
+    >
+  </li>
+  <li class="nav-item">
+    <a
+      class="nav-link navLi"
+      href="#tabTwo"
+      data-toggle="tab"
+      aria-expanded="true"
+      [ngClass]="{ active: key === 'tabTwo' }"
+      (click)="changeTab('tabTwo')"
+      >Minters | Tea bag
+    </a>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="tabOne">
+    <app-search-nft #searchNftComponent></app-search-nft>
+  </div>
+
+  <div class="tab-pane" id="tabTwo">
+    <app-search-minter-and-tea-bag
+      #searchMinterAndTeaBagComponent></app-search-minter-and-tea-bag>
+  </div>
+</div>
+
+<app-footer></app-footer>

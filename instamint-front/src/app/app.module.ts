@@ -1,18 +1,34 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { SearchComponent } from './features/search/search.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { SearchNftComponent } from './features/search/search-nft/search-nft.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        HomePageComponent,
+        SearchComponent,
+        SearchNftComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        RouterModule,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
