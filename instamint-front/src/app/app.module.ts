@@ -11,7 +11,6 @@ import { SearchComponent } from './features/search/search.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { SearchNftComponent } from './features/search/search-nft/search-nft.component';
-import { SearchMinterAndTeaBagComponent } from './features/search/search-minter-and-tea-bag/search-minter-and-tea-bag.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +20,6 @@ import { SearchMinterAndTeaBagComponent } from './features/search/search-minter-
         HomePageComponent,
         SearchComponent,
         SearchNftComponent,
-        SearchMinterAndTeaBagComponent,
     ],
     imports: [
         BrowserModule,
