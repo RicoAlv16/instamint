@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { NtfsEntity } from './shared/entities/nfts.entity';
 import { SearchMinterModule } from './modules/search-minter/search-minter.module';
+import { NotificationsModule } from './modules/notifications/notifications/notifications.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { SearchMinterModule } from './modules/search-minter/search-minter.module
     }),
     SearchNftModule,
     SearchMinterModule,
+    NotificationsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,11 +1,10 @@
-<!-- <div class="flex flex-col h-screen bg-gray-100 dark:bg-gray-900"> -->
 <header
   class="flex items-center justify-between p-4 bg-gray-800 text-white dark:bg-gray-200 dark:text-gray-800">
-  <!-- <img
-      src="../../assets/images/NFTs/logo-instamint.png"
-      width="24"
-      height="24"
-      alt="instamint logo" /> -->
+  <img
+    src="../../assets/images/NFTs/logo-instamint.png"
+    width="24"
+    height="24"
+    alt="instamint logo" />
   <h1 class="text-2xl font-bold">Instamint</h1>
   <nav class="flex gap-4">
     <svg
@@ -36,20 +35,32 @@
       <circle cx="11" cy="11" r="8"></circle>
       <path d="m21 21-4.3-4.3"></path>
     </svg>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="w-6 h-6 text-gray-400 dark:text-gray-600">
-      <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
-      <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
-    </svg>
+    <!-- notifications part-->
+    <div class="dropdown">
+      <a
+        id="dropdownNotif"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false">
+        <span class="notification-number">{{ notifNumber }}</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="w-6 h-6 text-gray-400 dark:text-gray-600">
+          <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+          <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+        </svg>
+      </a>
+      <app-notifications #notificationsComponent></app-notifications>
+    </div>
+    <!-- End notifications part -->
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -66,4 +77,3 @@
     </svg>
   </nav>
 </header>
-<!-- </div> -->

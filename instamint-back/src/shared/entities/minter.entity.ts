@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { NotificationsEntity } from './notifications.entity';
 
 @Entity('minterGet')
 export class MinterEntity {
@@ -50,5 +51,8 @@ export class MinterEntity {
 
   @Column({ default: 0 })
   idReport: number;
+
+  @OneToMany(() => NotificationsEntity, (notification) => notification.minter)
+  notifications: NotificationsEntity[];
   
 }
