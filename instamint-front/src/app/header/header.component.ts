@@ -21,6 +21,8 @@ export class HeaderComponent implements OnInit {
         this._minterNotifications.getNotificationsByMinter(this.idMinter).subscribe( data => {
             this.notifNumber = data.length
         })
-        
+    }
+    updateNotifNumber(event:number){
+        this.notifNumber = event
     }
 }
