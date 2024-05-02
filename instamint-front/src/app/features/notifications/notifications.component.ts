@@ -26,7 +26,7 @@ export class NotificationsComponent implements OnInit{
     notificationType = "Select the type"
     disableNotifications (event: string) {
         this.allNotificationsAndFiltered = this.allNotifications.
-            filter((notif:any) =>
+            filter((notif:NotificationsInterface) =>
                 notif.type.toLowerCase().includes(event.toLowerCase())
             )
         
