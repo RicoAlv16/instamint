@@ -12,7 +12,7 @@ export class NotificationsController {
         return await this.notificationsService.createNotifications(post);
     }
     
-    @Get('nono')
+    @Get('notifications')
     getAllNfts() {
         return this.notificationsService.getAllNotifications()
     }
