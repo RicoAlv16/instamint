@@ -5,6 +5,7 @@ import { SearchNftModule } from './modules/search-nft/searchNft.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { NtfsEntity } from './shared/entities/nfts.entity';
+import { SearchMinterModule } from './modules/search-minter/search-minter.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { NtfsEntity } from './shared/entities/nfts.entity';
       synchronize: true,
     }),
     SearchNftModule,
+    SearchMinterModule,
   ],
   controllers: [AppController],
   providers: [AppService],
