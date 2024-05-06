@@ -10,9 +10,9 @@ import { NotificationsInterface } from 'src/app/shared/interfaces/notifications.
 export class NotificationsComponent implements OnInit{
 
     idMinter = 1
-    allNotifications: NotificationsInterface[] = [];
+    allNotifications: NotificationsInterface[] = []
     allNotificationsAndFiltered: NotificationsInterface[] = []
-    @Output() notifNumberChanged = new EventEmitter<number>();
+    @Output() notifNumberChanged = new EventEmitter<number>()
 
     constructor(private notificationsService: NotificationsService) {}
 
