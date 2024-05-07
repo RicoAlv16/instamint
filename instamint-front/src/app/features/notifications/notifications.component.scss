@@ -74,3 +74,21 @@
 .inline {
   display: flex;
 }
+
+.customselectline {
+  border: 0px;
+  min-height: 0px;
+  border-radius: 0;
+}
+
+.input-group-text {
+  background-color: #4a504d;
+  color: #fff;
+  font-size: 14px;
+  line-height: 14px;
+  border: 1px solid rgba(33, 33, 33, 0.14);
+  border-top-color: rgba(33, 33, 33, 0.21);
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 2px;
+}

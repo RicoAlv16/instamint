@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationsService } from 'src/app/shared/services/notifications.service';
-import { BehaviorSubject, Observable, switchMap } from 'rxjs';
 import { NotificationsInterface } from 'src/app/shared/interfaces/notifications.interface';
 
 @Component({
@@ -11,20 +10,26 @@ import { NotificationsInterface } from 'src/app/shared/interfaces/notifications.
 export class NotificationsComponent implements OnInit{
 
     idMinter = 1
-    allNotifications$!: Observable<NotificationsInterface[]>
-    refreshAllNotifications$ = new BehaviorSubject<boolean>(true)
+    allNotifications: NotificationsInterface[] = [];
+    allNotificationsAndFiltered: NotificationsInterface[] = []
 
-    constructor(private _minterNotifications: NotificationsService) {}
+    constructor(private notificationsService: NotificationsService) {}
 
     ngOnInit(): void {
 
-        this.allNotifications$ = this.refreshAllNotifications$.pipe(
-            switchMap(_ => this._minterNotifications.getNotificationsByMinter(this.idMinter))
-        )
-        this.allNotifications$.subscribe( data => {
-            console.log("les notif====", data)
+        this.notificationsService.getNotificationsByMinter(this.idMinter).subscribe( data => {
+            this.allNotifications = data
+            this.allNotificationsAndFiltered = data
         })
 
+    }
+    notificationType = "Select the type"
+    disableNotifications (event: string) {
+        this.allNotificationsAndFiltered = this.allNotifications.
+            filter((notif:NotificationsInterface) =>
+                notif.type.toLowerCase().includes(event.toLowerCase())
+            )
+        
     }
 
 }
