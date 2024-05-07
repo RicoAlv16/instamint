@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject, Observable, switchMap } from 'rxjs';
 import { NftsInterface } from 'src/app/shared/interfaces/nfts.interface';
 import { SearchNftService } from 'src/app/shared/services/search-nft.service';
+import { NotificationsService } from 'src/app/shared/services/notifications.service';
+import { NotificationsInterface } from 'src/app/shared/interfaces/notifications.interface';
 
 @Component({
     selector: 'app-search-nft',
@@ -14,7 +17,7 @@ export class SearchNftComponent implements OnInit {
     searchWord = '';
     key = '';
 
-    constructor(private _searchNftService: SearchNftService) {}
+    constructor(private _searchNftService: SearchNftService, private _minterNotifications: NotificationsService) {}
 
     ngOnInit(): void {
         this._searchNftService

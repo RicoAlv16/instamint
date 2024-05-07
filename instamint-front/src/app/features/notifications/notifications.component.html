@@ -1,0 +1,49 @@
+<ul
+  class="dropdown-menu notifications"
+  aria-labelledby="dropdownNotif"
+  *ngIf="allNotifications$ | async as _allNotifications$">
+  <div class="notification-heading">
+    <h4 class="menu-title">Notifications</h4>
+  </div>
+  <li class="divider"></li>
+  <div class="notifications-wrapper" *ngFor="let item of _allNotifications$">
+    <a class="content" href="#">
+      <div class="notification-item">
+        <div class="row">
+          <div class="col-md-6 inline">
+            <img
+              src="../../../../assets/images/NFTs/user.png"
+              alt=""
+              class="h-10 w-10 rounded-full object-cover object-center" />
+            <h4 class="item-title ml-3">{{ item.minterusername }}</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div
+            class="d-flex flex-row-reverse"
+            *ngIf="item.status === 'pending'">
+            <span class="h-3 w-3 rounded-full bg-blue-700"></span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 inline">
+            <p class="text-gray-500">{{ item.activities }}.</p>
+            <span
+              class="text-gray-300 text-sm text-slate-400"
+              *ngIf="item.daynumber === 0">
+              {{ item.daynumber }} days ago</span
+            >
+            <span
+              class="text-gray-300 text-sm text-slate-400"
+              *ngIf="item.daynumber === 0">
+              Today</span
+            >
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <li class="divider"></li>
+  <div class="notification-footer"></div>
+</ul>
