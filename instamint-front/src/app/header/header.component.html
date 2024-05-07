@@ -58,7 +58,9 @@
           <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
         </svg>
       </a>
-      <app-notifications #notificationsComponent></app-notifications>
+      <app-notifications
+        #notificationsComponent
+        (notifNumberChanged)="updateNotifNumber($event)"></app-notifications>
     </div>
     <!-- End notifications part -->
     <svg

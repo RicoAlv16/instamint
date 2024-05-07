@@ -5,7 +5,7 @@
   <li class="divider"></li>
   <div
     class="notifications-wrapper"
-    *ngFor="let item of allNotificationsAndFiltered">
+    *ngFor="let item of allNotificationsAndFiltered; let i = index">
     <a class="content" href="#">
       <div class="notification-item">
         <div class="row">
@@ -22,6 +22,20 @@
             class="d-flex flex-row-reverse"
             *ngIf="item.status === 'pending'">
             <span class="h-3 w-3 rounded-full bg-blue-700"></span>
+          </div>
+          <div
+            class="form-check form-switch d-flex flex-row-reverse"
+            *ngIf="item.type === 'commented'">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckChecked"
+              checked
+              (input)="ignoreNftCommentNotifications(i)" />
+            <label
+              class="form-check-label"
+              for="flexSwitchCheckChecked"></label>
           </div>
         </div>
 

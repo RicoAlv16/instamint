@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NotificationsService } from 'src/app/shared/services/notifications.service';
 import { NotificationsInterface } from 'src/app/shared/interfaces/notifications.interface';
 
@@ -12,6 +12,7 @@ export class NotificationsComponent implements OnInit{
     idMinter = 1
     allNotifications: NotificationsInterface[] = [];
     allNotificationsAndFiltered: NotificationsInterface[] = []
+    @Output() notifNumberChanged = new EventEmitter<number>();
 
     constructor(private notificationsService: NotificationsService) {}
 
@@ -29,7 +30,13 @@ export class NotificationsComponent implements OnInit{
             filter((notif:NotificationsInterface) =>
                 notif.type.toLowerCase().includes(event.toLowerCase())
             )
-        
+    }
+
+    ignoreNftCommentNotifications(index: number) {
+        if (index !== -1) {
+            this.allNotificationsAndFiltered.splice(index, 1)
+            this.notifNumberChanged.emit(this.allNotificationsAndFiltered.length)
+        }
     }
 
 }
