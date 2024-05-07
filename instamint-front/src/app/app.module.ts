@@ -21,7 +21,7 @@ import { SearchMinterAndTeaBagComponent } from './features/search/search-minter-
         HomePageComponent,
         SearchComponent,
         SearchNftComponent,
-        SearchMinterAndTeaBagComponent
+        SearchMinterAndTeaBagComponent,
     ],
     imports: [
         BrowserModule,
