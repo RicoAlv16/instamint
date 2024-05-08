@@ -24,6 +24,15 @@ export class UsersProfileService {
         }
     }
 
+    async getAllTeaBags(): Promise<TeaBagEntity[]> {
+        try {
+            const findTeaBag = await this.teaBagPostRepository.find();
+            return findTeaBag;
+        } catch (error) {
+            throw new HttpException(`Error getting all tea bag: ${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     async getTeaBagByMinter(idMinter: number): Promise<TeaBagEntity[]> {
         try {
             return this.teaBagPostRepository
@@ -36,7 +45,7 @@ export class UsersProfileService {
             .groupBy('t.id, m.id')
             .getRawMany();
         } catch (error) {
-            throw new HttpException(`Error getting tea bag: ${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new HttpException(`Error getting tea bag by minter: ${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

@@ -1,0 +1,21 @@
+<main>
+  <div class="container">
+    <div class="gallery">
+      <div class="gallery-item" *ngFor="let item of nftFound">
+        <img src="{{ item.picture }}" class="gallery-image" alt="" />
+        <div class="gallery-item-info">
+          <ul>
+            <li class="gallery-item-likes">
+              <span class="visually-hidden">Mints:</span
+              ><i class="fa-regular fa-heart"></i> {{ item.mintNumber }}
+            </li>
+            <li class="gallery-item-comments">
+              <span class="visually-hidden">Comments:</span
+              ><i class="fa-regular fa-comment" aria-hidden="true"></i> 2
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
