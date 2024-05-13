@@ -1,4 +1,5 @@
 export interface MinterInterface {
+    id: number;
     email: string;
     password: string;
     username: string;
