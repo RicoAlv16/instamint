@@ -24,6 +24,7 @@ const routes: Routes = [
     {
         path: 'account/social-features/:username',
         component: SocialFeaturesComponent,
+        canActivate: [authGuard]
     },
     {
         path: 'not-found-page',
