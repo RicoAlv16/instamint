@@ -1,4 +1,5 @@
 export interface NftsInterface {
+    id: number;
     username: string;
     hashtag: string;
     description: string;
@@ -10,4 +11,5 @@ export interface NftsInterface {
     dismintNumber: string;
     isBuyable: boolean;
     idComment: number;
+    minterId: number;
 }

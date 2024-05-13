@@ -19,7 +19,7 @@ const routes: Routes = [
         component: SearchComponent,
     },
     {
-        path: 'account/social-features/:minterUsername',
+        path: 'account/social-features/:username',
         component: SocialFeaturesComponent,
     },
 ];

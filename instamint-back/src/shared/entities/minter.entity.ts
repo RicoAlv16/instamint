@@ -1,6 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { NotificationsEntity } from './notifications.entity';
 import { TeaBagEntity } from './tea-bag.entity';
+import { NtfsEntity } from './nfts.entity';
 
 @Entity('minterGet')
 export class MinterEntity {
@@ -58,5 +59,8 @@ export class MinterEntity {
 
   @OneToMany(() => TeaBagEntity, (teabag) => teabag.minter)
   teabag: TeaBagEntity[];
+
+  @OneToMany(() => NtfsEntity, (nfts) => nfts.minter)
+  nfts: NtfsEntity[];
   
 }

@@ -15,6 +15,7 @@ import { SearchMinterAndTeaBagComponent } from './features/search/search-minter-
 import { NotificationsComponent } from './features/notifications/notifications.component';
 import { SocialFeaturesComponent } from './features/social-features/social-features.component';
 import { UsersProfileComponent } from './features/social-features/users-profile/users-profile.component';
+import { MintersProfileWithNftsListComponent } from './features/social-features/minters-profile-with-nfts-list/minters-profile-with-nfts-list.component';
 
 @NgModule({
     declarations: [
@@ -28,6 +29,7 @@ import { UsersProfileComponent } from './features/social-features/users-profile/
         NotificationsComponent,
         SocialFeaturesComponent,
         UsersProfileComponent,
+        MintersProfileWithNftsListComponent,
     ],
     imports: [
         BrowserModule,

@@ -10,6 +10,11 @@ export class UsersProfileController {
     getAllMinters() {
         return this.usersProfileService.getAllMinters()
     }
+
+    @Get('/all-teabags')
+    getAllTeaBags() {
+        return this.usersProfileService.getAllTeaBags()
+    }
     
     @Get('user/:idMinter')
     getTeaBagByMinter(@Param('idMinter') idMinter: number) {

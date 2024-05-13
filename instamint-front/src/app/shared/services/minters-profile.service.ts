@@ -22,6 +22,12 @@ export class MintersProfileService {
         )
     }
 
+    getAllTeaBags(): Observable<TeaBagInterface[]> {
+        return this._http.get<TeaBagInterface[]>(
+            this._env.serveur + '/users-profile/all-teabags'
+        )
+    }
+
     getTeaBagByMinter(idMinter: number): Observable<TeaBagInterface[]> {
         return this._http.get<TeaBagInterface[]>(this._env.serveur + '/users-profile/user/'+ idMinter, this.httpOptions);
     }
