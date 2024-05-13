@@ -30,8 +30,11 @@ export class MinterEntity {
   @Column({default: "test"})
   profilPicture: string;
 
-  @Column({default: "test"})
+  @Column({default: "minter"})
   role: string;
+
+  @Column({default: "ReadOnly"})
+  permission: string;
 
   @Column({ default: "test" })
   profilPrivate: string;

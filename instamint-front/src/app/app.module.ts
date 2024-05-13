@@ -16,7 +16,7 @@ import { NotificationsComponent } from './features/notifications/notifications.c
 import { SocialFeaturesComponent } from './features/social-features/social-features.component';
 import { UsersProfileComponent } from './features/social-features/users-profile/users-profile.component';
 import { MintersProfileWithNftsListComponent } from './features/social-features/minters-profile-with-nfts-list/minters-profile-with-nfts-list.component';
-
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -30,6 +30,7 @@ import { MintersProfileWithNftsListComponent } from './features/social-features/
         SocialFeaturesComponent,
         UsersProfileComponent,
         MintersProfileWithNftsListComponent,
+        NotFoundPageComponent,
     ],
     imports: [
         BrowserModule,
