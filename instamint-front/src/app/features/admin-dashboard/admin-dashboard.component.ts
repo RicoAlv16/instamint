@@ -31,4 +31,18 @@ export class AdminDashboardComponent {
       alert('Please enter a valid Minter ID.');
     }
   }
+
+  deleteMinter(): void {
+    if (this.minterId !== null) {
+      this.adminService.deleteMinter(this.minterId).subscribe({
+        next: () => alert(`Minter account ${this.minterId} deleted`),
+        error: error =>
+          alert(
+            `Failed to delete Minter account ${this.minterId}: ${error.message}`
+          ),
+      });
+    } else {
+      alert('Please enter a valid Minter ID.');
+    }
+  }
 }

@@ -19,4 +19,11 @@ export class MinterAdminService {
     minter.isActive = false;
     await this.minterRepository.save(minter);
   }
+
+  async deleteMinter(id: number): Promise<void> {
+    const result = await this.minterRepository.delete(id);
+    if (result.affected === 0) {
+      throw new NotFoundException(`Minter with ID ${id} not found`);
+    }
+  }
 }

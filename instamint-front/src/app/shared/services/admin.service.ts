@@ -21,4 +21,10 @@ export class AdminService {
       { headers: this.getAuthHeaders() }
     );
   }
+
+  deleteMinter(id: number) {
+    return this.http.delete(`${this.adminUrl}/delete-minter/${id}`, {
+      headers: this.getAuthHeaders(),
+    });
+  }
 }

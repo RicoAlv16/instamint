@@ -1,5 +1,6 @@
 import {
   Controller,
+  Delete,
   Patch,
   UseGuards,
   Param,
@@ -35,6 +36,28 @@ export class AdminController {
     } catch (error) {
       throw new HttpException(
         'Failed to disable minter: ' + error.message,
+        HttpStatus.NOT_FOUND,
+      );
+    }
+  }
+
+  @Roles('admin')
+  @Delete('/delete-minter/:id')
+  @ApiOperation({ summary: 'Delete a minter account' })
+  @ApiResponse({
+    status: 403,
+    description: 'Forbidden. Only admins can access this endpoint.',
+  })
+  @ApiResponse({
+    status: 404,
+    description: 'Not found. The specified minter does not exist.',
+  })
+  async deleteMinter(@Param('id', ParseIntPipe) id: number) {
+    try {
+      await this.minterAdminService.deleteMinter(id);
+    } catch (error) {
+      throw new HttpException(
+        'Failed to delete minter: ' + error.message,
         HttpStatus.NOT_FOUND,
       );
     }
