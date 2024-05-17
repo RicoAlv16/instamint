@@ -9,6 +9,7 @@ import { AdminService } from 'src/app/shared/services/admin.service';
 export class AdminDashboardComponent {
   minterId: number | null = null;
   teaBagId: number | null = null;
+  nftId: number | null = null;
 
   constructor(private adminService: AdminService) {}
 
@@ -24,6 +25,11 @@ export class AdminDashboardComponent {
     this.teaBagId = inputElement.value
       ? parseInt(inputElement.value, 10)
       : null;
+  }
+
+  onNftIdInput(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    this.nftId = inputElement.value ? parseInt(inputElement.value, 10) : null;
   }
 
   disableMinter(): void {
@@ -63,6 +69,18 @@ export class AdminDashboardComponent {
       });
     } else {
       alert('Please enter a valid Tea Bag ID.');
+    }
+  }
+
+  deleteNft(): void {
+    if (this.nftId !== null) {
+      this.adminService.deleteNft(this.nftId).subscribe({
+        next: () => alert(`NFT ${this.nftId} deleted`),
+        error: error =>
+          alert(`Failed to delete NFT ${this.nftId}: ${error.message}`),
+      });
+    } else {
+      alert('Please enter a valid NFT ID.');
     }
   }
 }

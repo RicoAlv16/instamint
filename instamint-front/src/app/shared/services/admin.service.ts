@@ -33,4 +33,10 @@ export class AdminService {
       headers: this.getAuthHeaders(),
     });
   }
+
+  deleteNft(id: number) {
+    return this.http.delete(`${this.adminUrl}/delete-nft/${id}`, {
+      headers: this.getAuthHeaders(),
+    });
+  }
 }
