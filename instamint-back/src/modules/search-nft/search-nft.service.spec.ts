@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { SearchNftService } from './search-Nft.service';
+import { SearchNftService } from './searchNft.service';
 
 describe('SearchNftService', () => {
   let service: SearchNftService;

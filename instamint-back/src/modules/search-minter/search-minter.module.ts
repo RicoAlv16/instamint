@@ -8,9 +8,9 @@ import { TeaBagEntity } from 'src/shared/entities/tea-bag.entity';
 @Module({
   imports: [
     TypeOrmModule.forFeature([MinterEntity]),
-    TypeOrmModule.forFeature([TeaBagEntity]),
+    TypeOrmModule.forFeature([TeaBagEntity])
   ],
   providers: [SearchMinterService],
-  controllers: [SearchMinterController],
+  controllers: [SearchMinterController]
 })
 export class SearchMinterModule {}

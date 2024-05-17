@@ -4,17 +4,16 @@ import { CreateNftsPostDto } from 'src/shared/dto/create-nfts-post.dto';
 
 @Controller('search-nft')
 export class SearchNftController {
-  constructor(private readonly searchNftService: SearchNftService) {}
 
-  @Post()
-  async createNfts(
-    @Body() post: CreateNftsPostDto
-  ): Promise<CreateNftsPostDto> {
-    return await this.searchNftService.createNfts(post);
-  }
+    constructor ( private readonly searchNftService: SearchNftService ) {}
 
-  @Get()
-  getAllNfts() {
-    return this.searchNftService.getAllNfts();
-  }
+    @Post()
+    async createNfts(@Body() post: CreateNftsPostDto): Promise<CreateNftsPostDto> {
+        return await this.searchNftService.createNfts(post);
+    }
+    
+    @Get()
+    getAllNfts() {
+        return this.searchNftService.getAllNfts()
+    }
 }
