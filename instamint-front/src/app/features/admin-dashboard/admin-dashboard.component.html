@@ -10,4 +10,14 @@
     <button (click)="disableMinter()">Désactiver Minter</button>
     <button (click)="deleteMinter()">Supprimer Minter</button>
   </div>
+
+  <div class="section">
+    <h2>Tea Bags</h2>
+    <div>
+      <label for="teaBagId">Tea Bag ID</label>
+      <input id="teaBagId" type="number" (input)="onTeaBagIdInput($event)" />
+    </div>
+    <button (click)="deleteTeaBag()">Supprimer Tea Bag</button>
+  </div>
 </div>
+

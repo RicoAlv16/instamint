@@ -9,6 +9,7 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { MinterAdminService } from './minter-admin.service';
+import { TeaBagAdminService } from './teabag-admin.service';
 import { Roles } from '../auth/roles/roles.decorator';
 import { RolesGuard } from '../auth/roles/roles.guard';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
@@ -17,7 +18,10 @@ import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 @UseGuards(RolesGuard)
 @ApiTags('admin')
 export class AdminController {
-  constructor(private minterAdminService: MinterAdminService) {}
+  constructor(
+    private minterAdminService: MinterAdminService,
+    private teabagAdminService: TeaBagAdminService,
+  ) {}
 
   @Roles('admin')
   @Patch('/disable-minter/:id')
@@ -58,6 +62,28 @@ export class AdminController {
     } catch (error) {
       throw new HttpException(
         'Failed to delete minter: ' + error.message,
+        HttpStatus.NOT_FOUND,
+      );
+    }
+  }
+
+  @Roles('admin')
+  @Delete('/delete-teabag/:id')
+  @ApiOperation({ summary: 'Delete a tea bag' })
+  @ApiResponse({
+    status: 403,
+    description: 'Forbidden. Only admins can access this endpoint.',
+  })
+  @ApiResponse({
+    status: 404,
+    description: 'Not found. The specified tea bag does not exist.',
+  })
+  async deleteTeaBag(@Param('id', ParseIntPipe) id: number) {
+    try {
+      await this.teabagAdminService.deleteTeaBag(id);
+    } catch (error) {
+      throw new HttpException(
+        'Failed to delete tea bag: ' + error.message,
         HttpStatus.NOT_FOUND,
       );
     }

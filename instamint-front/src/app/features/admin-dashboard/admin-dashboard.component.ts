@@ -8,12 +8,20 @@ import { AdminService } from 'src/app/shared/services/admin.service';
 })
 export class AdminDashboardComponent {
   minterId: number | null = null;
+  teaBagId: number | null = null;
 
   constructor(private adminService: AdminService) {}
 
   onMinterIdInput(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
     this.minterId = inputElement.value
+      ? parseInt(inputElement.value, 10)
+      : null;
+  }
+
+  onTeaBagIdInput(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    this.teaBagId = inputElement.value
       ? parseInt(inputElement.value, 10)
       : null;
   }
@@ -43,6 +51,18 @@ export class AdminDashboardComponent {
       });
     } else {
       alert('Please enter a valid Minter ID.');
+    }
+  }
+
+  deleteTeaBag(): void {
+    if (this.teaBagId !== null) {
+      this.adminService.deleteTeaBag(this.teaBagId).subscribe({
+        next: () => alert(`Tea Bag ${this.teaBagId} deleted`),
+        error: error =>
+          alert(`Failed to delete Tea Bag ${this.teaBagId}: ${error.message}`),
+      });
+    } else {
+      alert('Please enter a valid Tea Bag ID.');
     }
   }
 }

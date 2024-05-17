@@ -27,4 +27,10 @@ export class AdminService {
       headers: this.getAuthHeaders(),
     });
   }
+
+  deleteTeaBag(id: number) {
+    return this.http.delete(`${this.adminUrl}/delete-teabag/${id}`, {
+      headers: this.getAuthHeaders(),
+    });
+  }
 }
