@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { MinterEntity } from './minter.entity';
+import { NtfsEntity } from './nfts.entity';
 
 @Entity('teaBagGet')
 export class TeaBagEntity {
@@ -34,4 +36,13 @@ export class TeaBagEntity {
 
   @Column({ default: 0 })
   idNft: number;
+
+  @ManyToOne(() => MinterEntity, (minter) => minter.teabag, {
+    eager: true,
+    nullable: true,
+  })
+  minter: MinterEntity;
+
+  @OneToMany(() => NtfsEntity, (nfts) => nfts.teabag)
+  nfts: NtfsEntity[];
 }

@@ -1,4 +1,5 @@
 export interface TeaBagInterface {
+    id: number;
     username: string;
     bio: string;
     link: string;

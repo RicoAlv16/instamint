@@ -6,7 +6,7 @@ import { TeaBagInterface } from '../interfaces/tea-bag.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root',
+    providedIn: 'root'
 })
 export class SearchMinterService {
     private _env = new env();

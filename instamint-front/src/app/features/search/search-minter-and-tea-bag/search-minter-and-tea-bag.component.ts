@@ -9,7 +9,7 @@ import { SearchMinterService } from 'src/app/shared/services/search-minter.servi
     styleUrls: ['./search-minter-and-tea-bag.component.scss']
 })
 export class SearchMinterAndTeaBagComponent implements OnInit{
- 
+
     allMinterTeaBagTable: Array<MinterInterface | TeaBagInterface> = []
     minterTeaBagTableFilted: Array<MinterInterface | TeaBagInterface> = []
     searchWord = ""
@@ -41,5 +41,5 @@ export class SearchMinterAndTeaBagComponent implements OnInit{
             )
         }
     }
-
+    
 }

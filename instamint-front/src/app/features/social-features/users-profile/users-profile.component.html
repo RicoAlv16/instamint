@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="profile">
+    <div class="profile-image">
+      <img
+        src="../../../../assets/images/NFTs/photo-profi-instagram.jpg"
+        width="50%"
+        height="50%"
+        alt="minter profil picture" />
+    </div>
+
+    <div class="profile-user-settings">
+      <h1 class="profile-user-name">{{ username }}</h1>
+
+      <button class="btn profile-edit-btn">Edit Profile</button>
+
+      <button class="btn profile-settings-btn" aria-label="profile settings">
+        <i class="fas fa-cog" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div class="profile-stats">
+      <ul>
+        <li>
+          Tea bag: <span class="profile-stat-count">{{ teaBag }}</span>
+        </li>
+        <li>
+          <span class="profile-stat-count">{{ followers }}</span> followers
+        </li>
+        <li>
+          <span class="profile-stat-count">{{ followed }}</span> followed
+        </li>
+      </ul>
+    </div>
+
+    <div class="profile-bio">
+      <p>
+        <span class="profile-real-name">{{ username }}</span> {{ bio }}
+      </p>
+    </div>
+  </div>
+</div>

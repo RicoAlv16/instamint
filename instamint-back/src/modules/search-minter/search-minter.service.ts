@@ -44,4 +44,5 @@ export class SearchMinterService {
             throw new HttpException(`Error getting Minter and TeaBag: ${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
 }

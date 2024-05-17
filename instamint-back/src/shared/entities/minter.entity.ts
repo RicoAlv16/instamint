@@ -1,5 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { NotificationsEntity } from './notifications.entity';
+import { TeaBagEntity } from './tea-bag.entity';
+import { NtfsEntity } from './nfts.entity';
 
 @Entity('minterGet')
 export class MinterEntity {
@@ -27,10 +29,13 @@ export class MinterEntity {
   @Column({ default: '' })
   profilPicture: string;
 
-  @Column({ default: '' })
+  @Column({default: "minter"})
   role: string;
 
-  @Column({ default: '' })
+  @Column({default: "ReadOnly"})
+  permission: string;
+
+  @Column({ default: "test" })
   profilPrivate: string;
 
   @Column({ default: '' })
@@ -53,5 +58,12 @@ export class MinterEntity {
 
   @OneToMany(() => NotificationsEntity, notification => notification.minter)
   notifications: NotificationsEntity[];
+
   isActive: boolean;
+
+  @OneToMany(() => TeaBagEntity, (teabag) => teabag.minter)
+  teabag: TeaBagEntity[];
+
+  @OneToMany(() => NtfsEntity, (nfts) => nfts.minter)
+  nfts: NtfsEntity[]; 
 }

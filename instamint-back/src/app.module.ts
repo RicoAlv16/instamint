@@ -7,6 +7,8 @@ import { ConfigModule } from '@nestjs/config';
 import { NftsEntity } from './shared/entities/nfts.entity';
 import { SearchMinterModule } from './modules/search-minter/search-minter.module';
 import { NotificationsModule } from './modules/notifications/notifications/notifications.module';
+import { UsersProfileModule } from './modules/social-features-single-minter/users-profile/users-profile.module';
+import { MintersProfileWithNftsListModule } from './modules/social-features-single-minter/minters-profile-with-nfts-list/minters-profile-with-nfts-list.module';
 
 @Module({
   imports: [
@@ -27,6 +29,8 @@ import { NotificationsModule } from './modules/notifications/notifications/notif
     SearchNftModule,
     SearchMinterModule,
     NotificationsModule,
+    UsersProfileModule,
+    MintersProfileWithNftsListModule,
   ],
   controllers: [AppController],
   providers: [AppService],
