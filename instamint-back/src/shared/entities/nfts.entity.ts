@@ -1,29 +1,30 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('nftsGet')
-export class NftsEntity {
+@Entity('ntfsGet')
+export class NtfsEntity {
+ 
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ default: '' })
+  @Column({ default: "test" })
   username: string;
 
-  @Column({ default: '' })
+  @Column({default: "test"})
   hashtag: string;
 
-  @Column({ default: '' })
+  @Column({default: "test"})
   description: string;
 
-  @Column({ default: '' })
+  @Column({default: "test"})
   location: string;
 
-  @Column({ default: '' })
+  @Column({default: "test"})
   picture: string;
 
-  @Column({ default: 0 })
+  @Column({default: 0})
   price: number;
 
-  @Column({ default: '' })
+  @Column({default: "test"})
   link: string;
 
   @Column({ default: 0 })
@@ -37,4 +38,5 @@ export class NftsEntity {
 
   @Column({ nullable: true })
   idComment: number;
+  
 }

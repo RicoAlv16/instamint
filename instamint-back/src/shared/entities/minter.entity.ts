@@ -3,37 +3,38 @@ import { NotificationsEntity } from './notifications.entity';
 
 @Entity('minterGet')
 export class MinterEntity {
+ 
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ default: '' })
+  @Column({ default: "test" })
   email: string;
 
-  @Column({ default: '' })
+  @Column({default: "test"})
   password: string;
 
-  @Column({ default: '' })
+  @Column({default: "test"})
   username: string;
 
-  @Column({ default: '' })
+  @Column({default: "test"})
   phone: string;
 
-  @Column({ default: '' })
+  @Column({default: "test"})
   location: string;
 
-  @Column({ default: '' })
+  @Column({default: "test"})
   profilBio: string;
 
-  @Column({ default: '' })
+  @Column({default: "test"})
   profilPicture: string;
 
-  @Column({ default: '' })
+  @Column({default: "test"})
   role: string;
 
-  @Column({ default: '' })
+  @Column({ default: "test" })
   profilPrivate: string;
 
-  @Column({ default: '' })
+  @Column({ default: "test" })
   profilLink: string;
 
   @Column({ default: 0 })
@@ -51,7 +52,7 @@ export class MinterEntity {
   @Column({ default: 0 })
   idReport: number;
 
-  @OneToMany(() => NotificationsEntity, notification => notification.minter)
+  @OneToMany(() => NotificationsEntity, (notification) => notification.minter)
   notifications: NotificationsEntity[];
-  isActive: boolean;
+  
 }
