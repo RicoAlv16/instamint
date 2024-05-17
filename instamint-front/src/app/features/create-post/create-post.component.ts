@@ -26,8 +26,9 @@ import { HttpClient } from '@angular/common/http';
     HttpClientModule
   ],
   templateUrl: './create-post.component.html',
-  styleUrl: './create-post.component.css'
+  styleUrls: ['./create-post.component.css']
 })
+
 export class CreatePostComponent implements OnInit {
   selectedImageFile!: File;
   termsAccepted: boolean = false;
@@ -97,7 +98,8 @@ export class CreatePostComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', this.selectedImageFile);
     formData.append('message', this.message);
-
+    console.log('Form data:', formData);
+    
     this.http.post('http://localhost:3000/posts/upload', formData)
       .subscribe(response => {
         this.dialog.closeAll();

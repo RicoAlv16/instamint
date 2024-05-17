@@ -3,7 +3,7 @@
     <mat-card-title>Create Post</mat-card-title>
   </mat-card-header>
   <div>
-    <textarea placeholder="Add your message here..."></textarea>
+    <textarea [(ngModel)]="message" name="message" placeholder="Add your message here..."></textarea>
   </div>
   <div *ngIf="selectedImageFile">
     <div id="post-preview">

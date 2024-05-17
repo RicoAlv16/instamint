@@ -1,17 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { CreatePostComponent } from '../create-post/create-post.component';
 
-import { MatIconModule } from '@angular/material/icon';
-import { MatDialog } from '@angular/material/dialog';
-
 @Component({
-  standalone:true,
   selector: 'app-post-feed',
   templateUrl: './post-feed.component.html',
-  styleUrl: './post-feed.component.css',
-  imports: [
-    MatIconModule,
-  ],
+  styleUrls: ['./post-feed.component.css'],
+  providers: [MatDialog]
 })
 export class PostFeedComponent implements OnInit {
 

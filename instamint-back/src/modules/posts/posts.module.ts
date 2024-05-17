@@ -9,4 +9,4 @@ import { File } from '../../shared/entities/file.entity';
   providers: [PostsService],
   controllers: [PostsController],
 })
-export class PostModule {}
+export class PostsModule {}
