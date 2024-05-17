@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { OpenPostComponent } from '../../tools/open-post/open-post.component';
-import { SettingsComponent } from '../../tools/settings/settings.component';
+import { OpenPostComponent } from '../open-post/open-post.component';
+import { SettingsComponent } from '../profile-settings/profile-settings.component';
 
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
@@ -15,7 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule,
   ],
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.css'
+  styleUrls: ['./profile.component.css']
 })
 
 export class ProfileComponent implements OnInit {
@@ -25,14 +25,14 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.userPosts = [
-      { imageUrl: 'assets/images/1.jpg', /* autres détails */ },
-      { imageUrl: 'assets/images/2.jpg', /* autres détails */ },
-      { imageUrl: 'assets/images/3.jpg', /* autres détails */ },
-      { imageUrl: 'assets/images/4.jpg', /* autres détails */ },
-      { imageUrl: 'assets/images/5.jpg', /* autres détails */ },
-      { imageUrl: 'assets/images/6.jpg', /* autres détails */ },
-      { imageUrl: 'assets/images/7.png', /* autres détails */ },
-      { imageUrl: 'assets/images/8.jpg', /* autres détails */ },
+      { imageUrl: 'assets/images/NFTs/1.jpg'},
+      { imageUrl: 'assets/images/NFTs/2.jpg'},
+      { imageUrl: 'assets/images/NFTs/3.jpg'},
+      { imageUrl: 'assets/images/NFTs/4.jpg'},
+      { imageUrl: 'assets/images/NFTs/5.jpg'},
+      { imageUrl: 'assets/images/NFTs/6.jpg'},
+      { imageUrl: 'assets/images/NFTs/7.png'},
+      { imageUrl: 'assets/images/NFTs/8.jpg'},
     ];
   }
 

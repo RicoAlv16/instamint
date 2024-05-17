@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { ProfileComponent } from './pages/profile/profile.component';
+import { ProfileComponent } from './features/profile/profile.component';
 
 
 export const routes: Routes = [

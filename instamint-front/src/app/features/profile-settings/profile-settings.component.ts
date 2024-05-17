@@ -6,8 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-settings',
-  templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.css'],
+  templateUrl: './profile-settings.component.html',
+  styleUrls: ['./profile-settings.component.css'],
   standalone: true,
   imports: [
     CommonModule,
@@ -24,12 +24,14 @@ export class SettingsComponent {
     private fb: FormBuilder
   ) {
     this.settingsForm = this.fb.group({
+      username: ['', Validators.required],
       password: [''],
       confirmPassword: [''],
       pageLink: [''],
       bio: ['', Validators.maxLength(300)],
       profileImage: [null]
     }, { validators: this.passwordMatchValidator });
+    
 
     this.profileImagePreview = null;
   }

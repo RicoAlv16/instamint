@@ -10,11 +10,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule
   ],
   templateUrl: './open-post.component.html',
-  styleUrl: './open-post.component.css'
+  styleUrls: ['./open-post.component.css'] // Utiliser 'styleUrls' pour spécifier les styles
 })
 
 export class OpenPostComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public data: { imageUrl: string }) { }
 }
-
-
