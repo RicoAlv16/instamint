@@ -1,0 +1,40 @@
+.dialog-content {
+  display: flex;
+  gap: 16px;
+  height: 400px; /* Ajustez la hauteur à 400px */
+  width: 800px; /* Ajustez la largeur à 800px */
+}
+
+.image-container {
+  flex: 1; /* Permet à l'image de remplir l'espace disponible */
+  height: 100%;
+  overflow: hidden; /* Pour gérer le dépassement d'image */
+}
+
+img {
+  width: 100%; /* Faites en sorte que l'image remplisse entièrement son conteneur */
+  height: 100%;
+  object-fit: cover;
+}
+
+.comments-section {
+  flex: 1; /* Permet aux commentaires de remplir l'espace disponible */
+  height: 390px; /* Ajustez la hauteur à 390px */
+  overflow-y: auto; /* Ajoutez une barre de défilement si nécessaire */
+}
+
+.actions {
+  width: 100%; /* Assurez-vous que les boutons prennent toute la largeur */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 10px; /* Ajoute un espace entre la section des commentaires et les boutons */
+}
+
+.actions button {
+  margin-left: 8px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: black;
+}

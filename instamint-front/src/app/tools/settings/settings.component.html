@@ -1,0 +1,37 @@
+<div class="dialog-content">
+  <form [formGroup]="settingsForm" (ngSubmit)="submitForm()">
+    <h2>Settings</h2>
+    <div>
+      <label for="profileImage">Profile Image:</label>
+      <input id="profileImage" type="file" (change)="onFileChange($event)">
+      <div *ngIf="profileImagePreview">
+        <img id="profileImagePreview" [src]="profileImagePreview" alt="Profile Image Preview">
+      </div>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input id="password" type="password" formControlName="password" placeholder="Enter new password">
+    </div>
+    <div>
+      <input id="confirmPassword" type="password" formControlName="confirmPassword" placeholder="Confirm new password">
+      <div *ngIf="settingsForm.get('confirmPassword')?.errors?.['passwordMismatch']">Passwords do not match.</div>
+    </div>
+    <div>
+      <label for="username">Username:</label>
+      <input id="username" type="text" formControlName="username" placeholder="Enter new username">
+    </div>
+    <div>
+      <label for="pageLink">Page Link:</label>
+      <input id="pageLink" type="text" formControlName="pageLink" placeholder="instamint.fr/">
+    </div>
+    <div>
+      <label for="bio">Bio:</label>
+      <textarea id="bio" formControlName="bio" rows="4" placeholder="Enter bio (max 300 characters)"></textarea>
+      <div *ngIf="settingsForm.get('bio')?.errors?.['maxlength']">Bio must be less than 300 characters.</div>
+    </div>
+    <div class="actions-buttons">
+      <button type="button" (click)="closeDialog()">Cancel</button>
+      <button type="submit" [disabled]="settingsForm.invalid">Submit</button>
+    </div>
+  </form>
+</div>
