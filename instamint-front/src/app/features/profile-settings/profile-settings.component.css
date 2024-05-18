@@ -1,7 +1,7 @@
 .dialog-content {
   display: flex;
   gap: 16px;
-  height: 800px;
+  height: 900px;
   width: 600px;
 }
 
@@ -19,7 +19,6 @@
 
 .profile-upload img {
   border: 1px solid #ccc;
-  border-radius: 50%;
   object-fit: cover;
 }
 
@@ -34,7 +33,7 @@
 #profileImagePreview {
   max-width: 150px;
   max-height: 150px;
-  border-radius: 100%;
+
 }
 
 h2 {
@@ -89,4 +88,9 @@ button[type="submit"] {
 img {
   display: block;
   margin-top: 1rem;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.75rem;
 }

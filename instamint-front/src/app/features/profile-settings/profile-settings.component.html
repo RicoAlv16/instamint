@@ -11,28 +11,43 @@
     <div>
       <label for="password">Password:</label>
       <input id="password" type="password" formControlName="password" placeholder="Enter new password">
+      <div *ngIf="settingsForm.get('password')?.errors?.['passwordStrength']">
+        <span class="error-message">Password must be at least 8 characters long and include [A, a, 1, ?].</span>
+      </div>
     </div>
     <div>
       <input id="confirmPassword" type="password" formControlName="confirmPassword" placeholder="Confirm new password">
-      <div *ngIf="settingsForm.get('confirmPassword')?.errors?.['passwordMismatch']">Passwords do not match.</div>
+      <div *ngIf="settingsForm.get('confirmPassword')?.errors?.['passwordMismatch']">
+        <span class="error-message">Passwords do not match.</span>
+      </div>
     </div>
     <div>
       <label for="username">Username:</label>
       <input id="username" type="text" formControlName="username" placeholder="Enter new username">
+      <div *ngIf="settingsForm.get('username')?.errors?.['noSpecialCharacters']">
+        <span class="error-message">Username cannot contain special characters.</span>
+        </div>
     </div>
     <div>
       <label for="email">Email:</label>
       <input id="email" type="text" formControlName="email" placeholder="Enter new email">
+      <div *ngIf="settingsForm.get('email')?.errors?.['email']">
+        <span class="error-message">Enter a valid email address.</span>
+        </div>
     </div>
     <div>
       <label for="pageLink">Page Link:</label>
       <input id="pageLink" type="text" formControlName="pageLink" placeholder="instamint.fr/">
+      <div *ngIf="settingsForm.get('pageLink')?.errors?.['invalidProfileLink']">
+        <span class="error-message">Page link must start with 'instamint.fr/' and contain only lowercase letters and numbers.</span>
+      </div>
     </div>
     <div>
       <label for="bio">Bio:</label>
       <textarea id="bio" formControlName="bio" rows="4" placeholder="Enter bio (max 300 characters)"></textarea>
       <div *ngIf="settingsForm.get('bio')?.errors?.['maxlength']">Bio must be less than 300 characters.</div>
     </div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
     <div class="actions-buttons">
       <button type="button" (click)="closeDialog()">Cancel</button>
       <button type="submit" [disabled]="settingsForm.invalid">Submit</button>
