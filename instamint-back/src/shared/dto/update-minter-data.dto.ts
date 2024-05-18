@@ -1,4 +1,3 @@
-// update-minter.dto.ts
 import { IsNumber, IsString, IsOptional, MaxLength, Matches } from 'class-validator';
 
 export class UpdateMinterDto {

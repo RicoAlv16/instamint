@@ -1,40 +1,40 @@
 #user-profile {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
   
-  #profile-header {
-    position: relative;
-    height: 170px;
-  }
+#profile-header {
+  position: relative;
+  height: 170px;
+}
   
-  #profile-picture {
-    position: absolute;
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    z-index: 1;
-  }
+#profile-picture {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  z-index: 1;
+}
 
-  #logo-instamint {
-    position: absolute;
-    top: 20%;
-    right: 15px;
-    transform: translateY(-50%);
-    z-index: 1;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    color : white;
-    width: 5%;
-  }
+#logo-instamint {
+  position: absolute;
+  top: 20%;
+  right: 15px;
+  transform: translateY(-50%);
+  z-index: 1;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color : white;
+  width: 5%;
+}
 
-  #profile-header {
-    position: relative;
+#profile-header {
+  position: relative;
 }
 
 #profile-header-info {
@@ -71,62 +71,61 @@ mat-icon{
 
 
 #profile-info {
-    position: absolute;
-    top: 50%;
-    left: 25%;
-    display: flex;
-    justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  display: flex;
+  justify-content: space-between;
 }
 
 #profile-info > div {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 #profile-info p,
 #profile-info span {
-    margin-right: 2.5em;
-    margin-bottom: 0;
-    margin-top: 0.1em;
-    color: white;
-    width: fit-content;
+  margin-right: 2.5em;
+  margin-bottom: 0;
+  margin-top: 0.1em;
+  color: white;
+  width: fit-content;
 }
 
 #profile-info p {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 #profile-info span {
-    font-size: 16px;
+  font-size: 16px;
 }
 
-  #banner {
-    position: relative;
-    height: 170px;
-    background-color: #37c871;
-    border-radius: 10px;
-    z-index: 0;
-  }
+#banner {
+  position: relative;
+  height: 170px;
+  background-color: #37c871;
+  border-radius: 10px;
+  z-index: 0;
+}
   
-  .mints-title{
-    text-align: center;
-    color : #37c871;
-  }
+.mints-title{
+  text-align: center;
+  color : #37c871;
+}
 
-  .post-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 20px;
-  }
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+}
   
-  .post {
-    border-radius: 10px;
-    overflow: hidden;
-    cursor: pointer;
-  }
+.post {
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
   
-  .post img {
-    width: 100%; 
-    height: auto;
-  }
-  
+.post img {
+  width: 100%; 
+  height: auto;
+}

@@ -11,4 +11,3 @@ export class UpdateUserDataController {
     return this.updateUserDataService.updateUser(updateMinterDto);
   }
 }
-
