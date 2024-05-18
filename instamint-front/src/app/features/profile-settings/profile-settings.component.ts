@@ -119,7 +119,6 @@ export class SettingsComponent {
           })
         )
         .subscribe(response => {
-          console.log(response);
           this.dialogRef.close();
         });
     }
