@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-settings',
@@ -12,19 +13,21 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
 })
-
 export class SettingsComponent {
   settingsForm: FormGroup;
   profileImagePreview: string | ArrayBuffer | null;
 
   constructor(
     public dialogRef: MatDialogRef<SettingsComponent>,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private http: HttpClient
   ) {
     this.settingsForm = this.fb.group({
       username: ['', Validators.required],
+      email: [''],
       password: [''],
       confirmPassword: [''],
       pageLink: [''],
@@ -64,9 +67,10 @@ export class SettingsComponent {
 
   submitForm(): void {
     if (this.settingsForm.valid) {
-      // Handle form submission
-      console.log(this.settingsForm.value);
-      this.dialogRef.close();
+      this.http.put('http://localhost:3000/modules/update-user-data', this.settingsForm.value).subscribe(response => {
+        console.log(response);
+        this.dialogRef.close();
+      });
     }
   }
 

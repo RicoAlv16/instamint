@@ -1,7 +1,7 @@
 .dialog-content {
   display: flex;
   gap: 16px;
-  height: 700px;
+  height: 800px;
   width: 600px;
 }
 
@@ -59,13 +59,16 @@ label {
 
 input, textarea {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.65rem;
   margin-top: 0.5rem;
+  border-radius: 25px;
 }
 
 button {
-  padding: 0.5rem;
+  padding: 0.75rem;
   margin-top: 1rem;
+  border-radius: 20px;
+  border: none;
 }
 
 button[type="button"] {

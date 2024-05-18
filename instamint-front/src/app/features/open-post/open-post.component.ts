@@ -10,7 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule
   ],
   templateUrl: './open-post.component.html',
-  styleUrls: ['./open-post.component.css'] // Utiliser 'styleUrls' pour spécifier les styles
+  styleUrls: ['./open-post.component.css']
 })
 
 export class OpenPostComponent {
