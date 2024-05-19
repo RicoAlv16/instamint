@@ -1,0 +1,16 @@
+export interface TeaBagInterface {
+    id: number;
+    username: string;
+    bio: string;
+    link: string;
+    location: string;
+    followers: number;
+    followered: number;
+    cookNumber: number;
+    whiteListe: string;
+    whiteListeDate: Date;
+    idNft: number;
+    role: string;
+    idTeaBag: number;
+    phone: number;
+}

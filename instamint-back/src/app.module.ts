@@ -2,28 +2,40 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { SearchNftModule } from './modules/search-nft/searchNft.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule } from '@nestjs/config';
+import { NtfsEntity } from './shared/entities/nfts.entity';
+import { SearchMinterModule } from './modules/search-minter/search-minter.module';
+import { NotificationsModule } from './modules/notifications/notifications/notifications.module';
+import { UsersProfileModule } from './modules/social-features-single-minter/users-profile/users-profile.module';
+import { MintersProfileWithNftsListModule } from './modules/social-features-single-minter/minters-profile-with-nfts-list/minters-profile-with-nfts-list.module';
 import { PostsModule } from './modules/posts/posts.module';
-import * as dotenv from 'dotenv';
-import { join } from 'path';
-
-dotenv.config({ path: join(__dirname, '..', '.env') });
-
-type CustomTypeOrmModuleOptions = TypeOrmModuleOptions & {
-  type: 'custom' | 'another_custom' | 'etc';
-};
+import { UpdateUserDataModule } from './modules/update-minter-data/update-minter-data.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: process.env.DB_TYPE as any,
-      host: process.env.DB_HOST,
-      port: parseInt(process.env.DB_PORT),
-      username: process.env.DB_USERNAME,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_DATABASE,
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+    ConfigModule.forRoot({
+      isGlobal: true,
     }),
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: process.env.POSTGRES_HOST,
+      port: parseInt(<string>process.env.POSTGRES_PORT),
+      username: process.env.POSTGRES_USER,
+      password: process.env.POSTGRES_PASSWORD,
+      database: process.env.POSTGRES_DATABASE,
+      entities:[NtfsEntity],
+      autoLoadEntities: true,
+      synchronize: true,
+    }),
+    SearchNftModule,
+    SearchMinterModule,
+    NotificationsModule,
+    UsersProfileModule,
+    MintersProfileWithNftsListModule,
     PostsModule,
+    UpdateUserDataModule
   ],
   controllers: [AppController],
   providers: [AppService],

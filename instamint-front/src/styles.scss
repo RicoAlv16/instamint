@@ -1,7 +1,60 @@
-/* You can add global styles to this file, and also import other style files */
+// Color palette
+:root {
+  --accent-color: #16502d;
+  --accent-light: #37c871;
+  --accent-lighter: #55ff99;
+  --accent-pale: #b3ff80;
+  --neutral-dark: #4a504d;
+  --neutral-medium: #b7c8ba;
+  --neutral-light: #e0f0e4;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// Spacing
+:root {
+  --unit: 4px; /* 1U = 4px */
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// Padding
+
+.content {
+  padding: 1.5U;
+  /* Add specific padding rules for different elements */
+}
+
+// Margin
+
+.section {
+  margin: 2U 0;
+}
+
+// Border
+hr {
+  border: 1px solid var(--neutral-medium);
+}
+
+// Font
+
+h1 {
+  font-size: 8U;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 6U;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 5U;
+  font-weight: 700;
+}
+
+p {
+  font-size: 4U;
+  font-weight: 500;
+}
+
+small {
+  font-size: 2.5U;
+  font-weight: 400;
+}
