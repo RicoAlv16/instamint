@@ -1,0 +1,83 @@
+<ul class="dropdown-menu notifications" aria-labelledby="dropdownNotif">
+  <div class="notification-heading">
+    <h4 class="menu-title">Notifications</h4>
+  </div>
+  <li class="divider"></li>
+  <div
+    class="notifications-wrapper"
+    *ngFor="let item of allNotificationsAndFiltered; let i = index">
+    <a class="content" href="#">
+      <div class="notification-item">
+        <div class="row">
+          <div class="col-md-6 inline">
+            <img
+              src="../../../../assets/images/NFTs/user.png"
+              alt=""
+              class="h-10 w-10 rounded-full object-cover object-center" />
+            <h4 class="item-title ml-3">{{ item.minterusername }}</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div
+            class="d-flex flex-row-reverse"
+            *ngIf="item.status === 'pending'">
+            <span class="h-3 w-3 rounded-full bg-blue-700"></span>
+          </div>
+          <div
+            class="form-check form-switch d-flex flex-row-reverse"
+            *ngIf="item.type === 'commented'">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckChecked"
+              checked
+              (input)="ignoreNftCommentNotifications(i)" />
+            <label
+              class="form-check-label"
+              for="flexSwitchCheckChecked"></label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 inline">
+            <p class="text-gray-500">{{ item.activities }}.</p>
+            <span
+              class="text-gray-300 text-sm text-slate-400"
+              *ngIf="item.daynumber !== 0">
+              {{ item.daynumber }} days ago</span
+            >
+            <span
+              class="text-gray-300 text-sm text-slate-400"
+              *ngIf="item.daynumber === 0">
+              Today</span
+            >
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <li class="divider"></li>
+  <div class="notification-footer">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01"
+          >Disable notification</label
+        >
+      </div>
+      <select
+        class="customselectline"
+        id="inputGroupSelect01"
+        [(ngModel)]="notificationType"
+        (ngModelChange)="disableNotifications($event)">
+        <option selected>Select the type</option>
+        <option value="all">All at once</option>
+        <option value="repliesComment">Replies in comment</option>
+        <option value="commentThreads">Comment threads</option>
+        <option value="liked">Likes</option>
+        <option value="followed">Follow</option>
+        <option value="followRequestAccepted">Follow request accepted</option>
+      </select>
+    </div>
+  </div>
+</ul>
