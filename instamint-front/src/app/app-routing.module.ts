@@ -7,15 +7,6 @@ import { SocialFeaturesComponent } from './features/social-features/social-featu
 import { authGuard } from './shared/services/auth.guard';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
-<<<<<<< HEAD
-const routes: Routes = [
-  { path: 'postfeed', component: PostFeedComponent },
-  { path: '', redirectTo: '/postfeed', pathMatch: 'full' },
-  { path: '**', redirectTo: '/postfeed' }
-];
-=======
->>>>>>> 2acc9ab10888111111ac358cc8104728d9c8cf30
-
 const routes: Routes = [
     {
         path: '',

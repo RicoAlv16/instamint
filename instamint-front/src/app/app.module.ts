@@ -21,7 +21,6 @@ import { PostFeedComponent } from './features/post-feed/post-feed.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -47,9 +46,9 @@ import { HttpClientModule } from '@angular/common/http';
         BrowserAnimationsModule,
         MatIconModule,
         MatDialogModule,
-        HttpClientModule,
         BrowserModule,
         ReactiveFormsModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent],
