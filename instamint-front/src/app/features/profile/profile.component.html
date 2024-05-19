@@ -1,0 +1,38 @@
+<div id="user-profile">
+    <div id="profile-header">
+        <img src="assets/images/logo-instamint.svg" id="logo-instamint">
+        <div id="banner"></div>
+        <img src="assets/images/NFTs/7.webp" id="profile-picture">
+        <div id="profile-header-info">
+            <p id="profile-name">Johndoe</p>
+            <button id="settings-button" (click)="openSettingsClick()"  >settings <mat-icon>settings</mat-icon></button>
+        </div>
+        <div id="profile-info">
+            <div>
+                <p id="teeabag-text">Teabag</p>
+                <span id="teeabag-name">&#64;teabagone</span>
+            </div>
+            <div>
+                <p id="followers-text">follewers</p>
+                <span id="followers-number">321</span>
+            </div>
+            <div>
+                <p id="following-text">followings</p>
+                <span id="following-number">456</span>
+            </div>
+            <div>
+                <p id="mint-text">Mints</p>
+                <span id="mint-number">8</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="profile-body">
+        <h1 class="mints-title">Mints</h1>
+        <div class="post-grid">
+        <div class="post" *ngFor="let post of userPosts">
+            <img (click)="openPostClick(post.imageUrl)" src="{{ post.imageUrl }}" alt="Post image">
+        </div>
+        </div>
+    </div>
+</div>

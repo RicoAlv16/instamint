@@ -7,7 +7,6 @@ import { SocialFeaturesComponent } from './features/social-features/social-featu
 import { authGuard } from './shared/services/auth.guard';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
-
 const routes: Routes = [
     {
         path: '',

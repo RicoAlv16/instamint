@@ -11,6 +11,7 @@ import { NotificationsModule } from './modules/notifications/notifications/notif
 import { UsersProfileModule } from './modules/social-features-single-minter/users-profile/users-profile.module';
 import { MintersProfileWithNftsListModule } from './modules/social-features-single-minter/minters-profile-with-nfts-list/minters-profile-with-nfts-list.module';
 import { PostsModule } from './modules/posts/posts.module';
+import { UpdateUserDataModule } from './modules/update-minter-data/update-minter-data.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { PostsModule } from './modules/posts/posts.module';
     UsersProfileModule,
     MintersProfileWithNftsListModule,
     PostsModule,
+    UpdateUserDataModule
   ],
   controllers: [AppController],
   providers: [AppService],
