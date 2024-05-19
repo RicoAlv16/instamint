@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { SearchNftModule } from './modules/search-nft/searchNft.module';
@@ -9,6 +10,8 @@ import { SearchMinterModule } from './modules/search-minter/search-minter.module
 import { NotificationsModule } from './modules/notifications/notifications/notifications.module';
 import { UsersProfileModule } from './modules/social-features-single-minter/users-profile/users-profile.module';
 import { MintersProfileWithNftsListModule } from './modules/social-features-single-minter/minters-profile-with-nfts-list/minters-profile-with-nfts-list.module';
+import { PostsModule } from './modules/posts/posts.module';
+import { UpdateUserDataModule } from './modules/update-minter-data/update-minter-data.module';
 
 @Module({
   imports: [
@@ -31,6 +34,8 @@ import { MintersProfileWithNftsListModule } from './modules/social-features-sing
     NotificationsModule,
     UsersProfileModule,
     MintersProfileWithNftsListModule,
+    PostsModule,
+    UpdateUserDataModule
   ],
   controllers: [AppController],
   providers: [AppService],
