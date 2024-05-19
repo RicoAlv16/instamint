@@ -2,31 +2,30 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { MinterEntity } from './minter.entity';
 import { TeaBagEntity } from './tea-bag.entity';
 
-@Entity('ntfsGet')
-export class NtfsEntity {
- 
+@Entity('nftsGet')
+export class NftsEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ default: "test" })
+  @Column({ default: '' })
   username: string;
 
-  @Column({default: "test"})
+  @Column({ default: '' })
   hashtag: string;
 
-  @Column({default: "test"})
+  @Column({ default: '' })
   description: string;
 
-  @Column({default: "test"})
+  @Column({ default: '' })
   location: string;
 
-  @Column({default: "test"})
+  @Column({ default: '' })
   picture: string;
 
-  @Column({default: 0})
+  @Column({ default: 0 })
   price: number;
 
-  @Column({default: "test"})
+  @Column({ default: '' })
   link: string;
 
   @Column({ default: 0 })

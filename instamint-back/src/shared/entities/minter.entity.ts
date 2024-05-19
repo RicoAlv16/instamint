@@ -5,29 +5,28 @@ import { NtfsEntity } from './nfts.entity';
 
 @Entity('minterGet')
 export class MinterEntity {
- 
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ default: "test" })
+  @Column({ default: '' })
   email: string;
 
-  @Column({default: "test"})
+  @Column({ default: '' })
   password: string;
 
-  @Column({default: "test"})
+  @Column({ default: '' })
   username: string;
 
-  @Column({default: "test"})
+  @Column({ default: '' })
   phone: string;
 
-  @Column({default: "test"})
+  @Column({ default: '' })
   location: string;
 
-  @Column({default: "test"})
+  @Column({ default: '' })
   profilBio: string;
 
-  @Column({default: "test"})
+  @Column({ default: '' })
   profilPicture: string;
 
   @Column({default: "minter"})
@@ -39,7 +38,7 @@ export class MinterEntity {
   @Column({ default: "test" })
   profilPrivate: string;
 
-  @Column({ default: "test" })
+  @Column({ default: '' })
   profilLink: string;
 
   @Column({ default: 0 })
@@ -57,13 +56,14 @@ export class MinterEntity {
   @Column({ default: 0 })
   idReport: number;
 
-  @OneToMany(() => NotificationsEntity, (notification) => notification.minter)
+  @OneToMany(() => NotificationsEntity, notification => notification.minter)
   notifications: NotificationsEntity[];
+
+  isActive: boolean;
 
   @OneToMany(() => TeaBagEntity, (teabag) => teabag.minter)
   teabag: TeaBagEntity[];
 
   @OneToMany(() => NtfsEntity, (nfts) => nfts.minter)
-  nfts: NtfsEntity[];
-  
+  nfts: NtfsEntity[]; 
 }

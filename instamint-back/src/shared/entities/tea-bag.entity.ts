@@ -4,20 +4,19 @@ import { NtfsEntity } from './nfts.entity';
 
 @Entity('teaBagGet')
 export class TeaBagEntity {
- 
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({default: "test"})
+  @Column({ default: '' })
   username: string;
 
-  @Column({default: "test"})
+  @Column({ default: '' })
   bio: string;
 
-  @Column({default: "test"})
+  @Column({ default: '' })
   link: string;
 
-  @Column({default: "Paris"})
+  @Column({ default: '' })
   location: string;
 
   @Column({ default: 0 })
@@ -29,7 +28,7 @@ export class TeaBagEntity {
   @Column({ default: 0 })
   cookNumber: number;
 
-  @Column({ default: "test" })
+  @Column({ default: '' })
   whiteListe: string;
 
   @Column()
