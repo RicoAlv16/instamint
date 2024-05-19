@@ -17,6 +17,12 @@ import { SocialFeaturesComponent } from './features/social-features/social-featu
 import { UsersProfileComponent } from './features/social-features/users-profile/users-profile.component';
 import { MintersProfileWithNftsListComponent } from './features/social-features/minters-profile-with-nfts-list/minters-profile-with-nfts-list.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { PostFeedComponent } from './features/post-feed/post-feed.component'; // Assurez-vous que le chemin est correct
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -38,6 +44,10 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
         FormsModule,
         HttpClientModule,
         RouterModule,
+        BrowserAnimationsModule,
+        MatIconModule,
+        MatDialogModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent],

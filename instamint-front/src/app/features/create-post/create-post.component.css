@@ -1,0 +1,55 @@
+mat-card {
+    width: 500px;
+    min-height: 200px;
+    font-size: 2em;
+    padding: 0.75em;
+    overflow: hidden;
+}
+
+mat-card-title{
+    font-size: 1.15em;
+    color: #37C871;
+}
+
+#photo-upload {
+    display: none;
+}
+
+textarea {
+    width: 400px;
+    min-height: 30px;
+    font-size: 0.75em;
+    padding: 2em;
+    resize: none;
+    border: none;
+    outline: none;
+}
+
+#post-preview {
+    align-items: center;
+    margin-top: 1em;
+}
+
+#post-preview-image {
+    object-fit: cover;
+    width: 450px;
+    height: 300px;
+    border-radius: 1em;
+    border: 1px dashed gray;
+}
+
+#error-message {
+    font-size: 0.45em;
+    margin-left: 2.5em;
+}
+
+#terms-checkbox {
+    font-size: 0.75em;
+    margin-right: 5em;
+}
+
+#post-button {
+    background-color: #37C871;
+    color: white;
+    margin-left: 1em;
+}

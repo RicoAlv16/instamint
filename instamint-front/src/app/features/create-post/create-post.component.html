@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Create Post</mat-card-title>
+  </mat-card-header>
+  <div>
+    <textarea [(ngModel)]="message" name="message" placeholder="Add your message here..."></textarea>
+  </div>
+  <div *ngIf="selectedImageFile">
+    <div id="post-preview">
+      <img id="post-preview-image">
+    </div>
+  </div>
+  <div id="error-message" style="color: red;"></div>
+  <mat-card-actions align="end">
+    <mat-checkbox color="primary" id="terms-checkbox" [(ngModel)]="termsAccepted" (change)="onTermsAcceptedChange()">I accept <a href="#">Terms of use</a></mat-checkbox>
+    <button matbutton color="warn">
+      <label for="photo-upload">
+        <input #photoSelector (change)="onPhotoSelected(photoSelector)"
+              id="photo-upload" type="file" accept=".png,.webp,.ogg,.flac,.mp4">
+        <mat-icon>insert_photo</mat-icon>
+      </label>
+    </button>
+    <button mat-button id ="post-button" [disabled]="isPostButtonDisabled()" (click)="onPost()" >Post</button>
+  </mat-card-actions>
+</mat-card>
