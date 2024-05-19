@@ -3,6 +3,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Post } from '../../shared/entities/post.entity';
 import { File } from '../../shared/entities/file.entity';
+import { Multer } from 'multer';
+
 
 @Injectable()
 export class PostsService {
