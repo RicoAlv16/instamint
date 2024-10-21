@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environnement virtuel
+venv/
+.env
+
+# Pytest
+.cache/
+
+# Autres fichiers temporaires
+*.log
